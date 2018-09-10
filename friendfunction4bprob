@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+class sample1;
+class sample2 {
+	int b;
+public:
+	void get()
+	{
+		cin >> b;
+	}
+	void max(sample1 x, sample2 y);
+};
+class sample1
+{
+ int a;
+
+public:
+	void get()
+	{
+		cin >> a;
+
+	}
+	friend void sample2 :: max(sample1 x, sample2 y);
+};
+
+void sample2::max(sample1 x, sample2 y)
+{
+	if (x.a > y.b)
+	{
+		cout << "X is greater." << endl;
+	}
+	else if (x.a < y.b)
+	{
+		cout << "Y is greater" << endl;
+	}
+	else 
+
+	{
+		cout << "Both are equal" << endl;
+	}
+	
+
+}
+int main() {
+	sample1 x;
+	sample2 y, c;
+	x.get();
+	y.get();
+	c.max(x, y);
+}
